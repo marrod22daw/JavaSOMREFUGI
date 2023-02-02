@@ -78,7 +78,15 @@ public class main {
                             case 4:
                                 Iterator<Persona> itProf = profesors.iterator();
                                 while (itProf.hasNext()){
-                                    System.out.println(itProf.next()) ;
+                                    Profesor prof = (Profesor) itProf.next();
+                                    System.out.println("DNI: " + prof.getDni());
+                                    System.out.println("Nombre: " + prof.getNom());
+                                    System.out.println("Apellido: " + prof.getCognom());
+                                    System.out.println("Email: " + prof.getEmail());
+                                    System.out.println("ID: " + prof.getIdProfesor());
+                                    System.out.println("Aula: " + prof.getTutorAula());
+                                    System.out.println("Horas semanales: " + prof.getHorasimpartides());
+                                    System.out.println("Salario por hora: " + prof.getSalarixhora());
                                 }
                                 break;
                             case 5:

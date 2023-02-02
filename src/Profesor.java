@@ -14,6 +14,38 @@ protected Double salarixhora;
         this.salarixhora = salarixhora;
     }
 
+    public Integer getIdProfesor() {
+        return idProfesor;
+    }
+
+    public void setIdProfesor(Integer idProfesor) {
+        this.idProfesor = idProfesor;
+    }
+
+    public Integer getTutorAula() {
+        return tutorAula;
+    }
+
+    public void setTutorAula(Integer tutorAula) {
+        this.tutorAula = tutorAula;
+    }
+
+    public Double getHorasimpartides() {
+        return horasimpartides;
+    }
+
+    public void setHorasimpartides(Double horasimpartides) {
+        this.horasimpartides = horasimpartides;
+    }
+
+    public Double getSalarixhora() {
+        return salarixhora;
+    }
+
+    public void setSalarixhora(Double salarixhora) {
+        this.salarixhora = salarixhora;
+    }
+
     @Override
     public String toString() {
         return "Profesor{" +
