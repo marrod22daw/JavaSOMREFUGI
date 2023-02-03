@@ -52,4 +52,5 @@ public class Persona {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }
