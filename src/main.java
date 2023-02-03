@@ -5,20 +5,17 @@ import java.util.Scanner;
 public class main {
     static ArrayList<Persona> profesors = new ArrayList<Persona>();
     static ArrayList<Persona> alumnes = new ArrayList<Persona>();
-
     static ArrayList<Nota> notas = new ArrayList<Nota>();
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
         int mainMenuChoice = 0;
-        int subMenuChoice;
-        Scanner sc = new Scanner(System.in);
+        int subMenuChoice = 0;
 
         // Per crear els valors
-        Alumne alumn1 = new Alumne(23, "SMX");
         Profesor profesor1 = new Profesor("98745034J", "Estela", "Simon", "esimon.clot@fje.edu", 001, 202, 40.0, 15.0);
-        Persona alumne1 = new Persona("54317002H", "Marti", "Rodriguez", "15583956.clot@fje.edu");
-        Nota nota1 = new Nota(8,5, 3,6,8,1, alumn1);
+        Alumne alumne1 = new Alumne("54317002H", "Marti", "Rodriguez", "15583956.clot@fje.edu", 23, "SMX");
+        Nota nota1 = new Nota(8,5, 3,6,8,1, 2);
 
         //Per afegir els valors
         profesors.add(profesor1);
@@ -33,7 +30,7 @@ public class main {
             System.out.println("2.Gestio d'alumnes");
             System.out.println("3.Gestio de notes ");
             System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("Selecciona una opció: ");
 
             if (input.hasNextInt()) {
                 mainMenuChoice = input.nextInt();
@@ -51,8 +48,9 @@ public class main {
                             System.out.println("4.Llista de profesors ");
                             System.out.println("5. Exit");
                             System.out.print("Selecciona una opció: ");
-                            subMenuChoice = input.nextInt();
-                            input.nextLine(); // Per netejar el buffer
+                            if (input.hasNextInt()) {
+                                subMenuChoice = input.nextInt();
+                                input.nextLine(); // Per netejar el buffer
 
                             switch (subMenuChoice) {
                                 case 1:
@@ -114,7 +112,8 @@ public class main {
                                         System.out.println("ID: " + prof.getIdProfesor());
                                         System.out.println("Aula tutor: " + prof.getTutorAula());
                                         System.out.println("Horas setmanals: " + prof.getHorasimpartides());
-                                        System.out.println("Salari per hora: " + prof.getSalarixhora());
+                                        System.out.println("Salari per hora: " + prof.getSalarixhora()+"€");
+                                        System.out.println("Salari Total " + prof.salariTotal(prof.getHorasimpartides(),prof.getSalarixhora())+"€");
                                         System.out.println("//-+-+-+-+-+-+-//");
                                         System.out.print("\n");
                                     }
@@ -124,6 +123,12 @@ public class main {
                                     break;
                                 default:
                                     System.out.println("Numero invalid");
+                            }
+                            }else {
+                                // El input no es un INT
+                                System.out.print("\n");
+                                System.out.println("Escriu un numero.");
+                                input.next();
                             }
                         } while (subMenuChoice != 5);
                         break;
@@ -138,7 +143,9 @@ public class main {
                             System.out.println("4. Llista alumnes");
                             System.out.println("5. Exit");
                             System.out.print("Selecciona una opció: ");
-                            subMenuChoice = input.nextInt();
+                            if (input.hasNextInt()) {
+                                subMenuChoice = input.nextInt();
+                                input.nextLine(); // Per netejar el buffer
 
                             switch (subMenuChoice) {
                                 case 1:
@@ -162,6 +169,12 @@ public class main {
                                 default:
                                     System.out.println("Numero invalid");
                             }
+                            }else {
+                                // El input no es un INT
+                                System.out.print("\n");
+                                System.out.println("Escriu un numero.");
+                                input.next();
+                            }
                         } while (subMenuChoice != 5);
                         break;
                     case 3:
@@ -175,29 +188,37 @@ public class main {
                             System.out.println("4. Llistar notes");
                             System.out.println("5. Exit");
                             System.out.print("Selecciona una opció: ");
-                            subMenuChoice = input.nextInt();
+                            if (input.hasNextInt()) {
+                                subMenuChoice = input.nextInt();
+                                input.nextLine(); // Per netejar el buffer
 
-                            switch (subMenuChoice) {
-                                case 1:
-                                    // Afegir notes
-                                    break;
-                                case 2:
-                                    // Cambiar notes
-                                    break;
-                                case 3:
-                                    // Eliminar notes
-                                    break;
-                                case 4:
-                                    Iterator<Nota> itNota = notas.iterator();
-                                    while (itNota.hasNext()) {
-                                        System.out.println(itNota.next());
-                                    }
-                                    break;
-                                case 5:
-                                    // Exit
-                                    break;
-                                default:
-                                    System.out.println("Numero invalid");
+                                switch (subMenuChoice) {
+                                    case 1:
+                                        // Afegir notes
+                                        break;
+                                    case 2:
+                                        // Cambiar notes
+                                        break;
+                                    case 3:
+                                        // Eliminar notes
+                                        break;
+                                    case 4:
+                                        Iterator<Nota> itNota = notas.iterator();
+                                        while (itNota.hasNext()) {
+                                            System.out.println(itNota.next());
+                                        }
+                                        break;
+                                    case 5:
+                                        // Exit
+                                        break;
+                                    default:
+                                        System.out.println("Numero invalid");
+                                }
+                            }else {
+                                // El input no es un INT
+                                System.out.print("\n");
+                                System.out.println("Escriu un numero.");
+                                input.next();
                             }
                         } while (subMenuChoice != 5);
                         break;

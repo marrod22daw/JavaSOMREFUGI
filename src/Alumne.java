@@ -1,15 +1,13 @@
 public class Alumne extends Persona{
-    private Integer idAlumno;
-    private String Curs;
+    protected Integer idAlumno;
+    protected String Curs;
 
-    public Alumne(String dni, String nom, String cognom, String email) {
+
+    public Alumne(String dni, String nom, String cognom, String email, Integer idAlumno, String curs) {
         super(dni, nom, cognom, email);
+        this.idAlumno = idAlumno;
+        Curs = curs;
     }
-
-    public Alumne(int idAlumno, String Curs) {
-        super();
-    }
-
 
     public Integer getIdAlumno() {
         return idAlumno;
@@ -32,6 +30,10 @@ public class Alumne extends Persona{
         return "Alumne{" +
                 "idAlumno=" + idAlumno +
                 ", Curs='" + Curs + '\'' +
+                ", dni='" + dni + '\'' +
+                ", nom='" + nom + '\'' +
+                ", cognom='" + cognom + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

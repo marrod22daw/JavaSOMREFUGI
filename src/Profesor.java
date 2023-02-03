@@ -1,4 +1,4 @@
-public class Profesor extends Persona {
+public class Profesor extends Persona implements salariTotal {
 
     protected Integer idProfesor;
     protected Integer tutorAula;
@@ -14,6 +14,9 @@ public class Profesor extends Persona {
         this.salarixhora = salarixhora;
     }
 
+    public double salariTotal(double salarixhora, double horasimpartides ){
+        return this.salarixhora * this.horasimpartides;
+    }
     public Integer getIdProfesor() {
         return idProfesor;
     }
@@ -57,6 +60,7 @@ public class Profesor extends Persona {
                 ", nom='" + nom + '\'' +
                 ", cognom='" + cognom + '\'' +
                 ", email='" + email + '\'' +
+                salariTotal(this.salarixhora,this.horasimpartides) +
                 '}';
     }
 }

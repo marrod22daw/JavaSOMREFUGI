@@ -1,4 +1,5 @@
-public class Nota {
+public class Nota{
+    private Integer idAlumne;
     private Integer M01;
     private Integer M03;
     private Integer M05;
@@ -6,16 +7,22 @@ public class Nota {
     private Integer M08;
     private Integer M12;
 
-    private Alumne alumno;
-
-    public Nota(Integer m01, Integer m03, Integer m05, Integer m07, Integer m08, Integer m12, Alumne alumno) {
+    public Nota(Integer idAlumne, Integer m01, Integer m03, Integer m05, Integer m07, Integer m08, Integer m12) {
+        this.idAlumne = idAlumne;
         M01 = m01;
         M03 = m03;
         M05 = m05;
         M07 = m07;
         M08 = m08;
         M12 = m12;
-        this.alumno = alumno;
+    }
+
+    public Integer getIdAlumne() {
+        return idAlumne;
+    }
+
+    public void setIdAlumne(Integer idAlumne) {
+        this.idAlumne = idAlumne;
     }
 
     public Integer getM01() {
@@ -66,24 +73,16 @@ public class Nota {
         M12 = m12;
     }
 
-    public Alumne getAlumno() {
-        return alumno;
-    }
-
-    public void setAlumno(Alumne alumno) {
-        this.alumno = alumno;
-    }
-
     @Override
     public String toString() {
         return "Nota{" +
-                "M01=" + M01 +
+                "idAlumne=" + idAlumne +
+                ", M01=" + M01 +
                 ", M03=" + M03 +
                 ", M05=" + M05 +
                 ", M07=" + M07 +
                 ", M08=" + M08 +
                 ", M12=" + M12 +
-                ", alumno=" + alumno +
                 '}';
     }
 }
