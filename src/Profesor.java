@@ -1,9 +1,9 @@
 public class Profesor extends Persona {
 
-protected Integer idProfesor;
-protected Integer tutorAula;
-protected Double horasimpartides;
-protected Double salarixhora;
+    protected Integer idProfesor;
+    protected Integer tutorAula;
+    protected Double horasimpartides;
+    protected Double salarixhora;
 
 
     public Profesor(String dni, String nom, String cognom, String email, Integer idProfesor, Integer tutorAula, Double horasimpartides, Double salarixhora) {

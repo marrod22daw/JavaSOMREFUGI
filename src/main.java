@@ -20,9 +20,6 @@ public class main {
         profesors.add(profesor1);
         alumnes.add(alumne1);
 
-
-
-
         do {
             // Display main menu
             System.out.print("\n");
@@ -188,7 +185,23 @@ public class main {
                                     profesors.set(0, profesor);
                                     break;
                                 case 3:
-                                    // Borrar Profesors
+                                    System.out.println("Introduce el ID del profesor a eliminar: ");
+                                    int idProfAEliminar = input.nextInt();
+                                    boolean profesorEliminado = false;
+                                    Iterator<Persona> it = profesors.iterator();
+                                    while (it.hasNext()){
+                                        Profesor prof = (Profesor) it.next();
+                                        if (prof.getIdProfesor() == idProfAEliminar) {
+                                            it.remove();
+                                            profesorEliminado = true;
+                                            break;
+                                        }
+                                    }
+                                    if (profesorEliminado) {
+                                        System.out.println("El profesor con ID " + idProfAEliminar + " ha sido eliminado.");
+                                    } else {
+                                        System.out.println("No se ha encontrado un profesor con ID " + idProfAEliminar + ".");
+                                    }
                                     break;
                                 case 4:
                                     Iterator<Persona> itProf = profesors.iterator();
