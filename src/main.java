@@ -194,20 +194,66 @@ public class main {
 
                                 switch (subMenuChoice) {
                                     case 1:
-                                        // Afegir notes
+                                        System.out.print("\n");
+                                        System.out.println("Possar notes ");
+                                        crearNotas.crearNotas(input);
                                         break;
                                     case 2:
-                                        // Cambiar notes
+                                        System.out.println("Introdueix el ID de l'alumne per editar les seves notes: ");
+                                        int idNotaAEditar = input.nextInt();
+                                        boolean notaEditada = false;
+                                        Iterator<Nota> editar = notas.iterator();
+                                        while (editar.hasNext()){
+                                            Nota prof = (Nota) editar.next();
+                                            if (prof.getIdAlumne() == idNotaAEditar) {
+                                                editar.remove();
+                                                crearNotas.crearNotas(input);
+                                                notaEditada = true;
+                                                break;
+                                            }
+                                        }
+                                        if (notaEditada) {
+                                            System.out.println("Les notes de l'alumne amb ID " + idNotaAEditar + " han sigut editades.");
+                                        } else {
+                                            System.out.println("No s'ha trobat notes d'un alumne amb ID " + idNotaAEditar + ".");
+                                        }
                                         break;
+
                                     case 3:
-                                        // Eliminar notes
+                                        System.out.println("Introdueix el ID de l'alumne per eliminar les seves notes: ");
+                                        int idNotaAEliminar = input.nextInt();
+                                        boolean notaEliminado = false;
+                                        Iterator<Nota> borrar = notas.iterator();
+                                        while (borrar.hasNext()){
+                                            Nota prof = (Nota) borrar.next();
+                                            if (prof.getIdAlumne() == idNotaAEliminar) {
+                                                borrar.remove();
+                                                notaEliminado = true;
+                                                break;
+                                            }
+                                        }
+                                        if (notaEliminado) {
+                                            System.out.println("Les notes de l'alumne amb ID " + idNotaAEliminar + " han sigut esborrades.");
+                                        } else {
+                                            System.out.println("No s'ha trobat notes amb ID " + idNotaAEliminar + ".");
+                                        }
                                         break;
                                     case 4:
                                         Iterator<Nota> itNota = notas.iterator();
                                         while (itNota.hasNext()) {
-                                            System.out.println(itNota.next());
+                                            Nota prof = (Nota) itNota.next();
+                                            System.out.print("\n");
+                                            System.out.println("//-+-+-+-+-+-+-//");
+                                            System.out.println("ID: " + prof.getIdAlumne());
+                                            System.out.println("M01: " + prof.getM01());
+                                            System.out.println("M03: " + prof.getM03());
+                                            System.out.println("M05: " + prof.getM05());
+                                            System.out.println("M07: " + prof.getM07());
+                                            System.out.println("M08: " + prof.getM08());
+                                            System.out.println("M12: " + prof.getM12());
+                                            System.out.println("//-+-+-+-+-+-+-//");
+                                            System.out.print("\n");
                                         }
-                                        break;
                                     case 5:
                                         // Exit
                                         break;
@@ -232,7 +278,7 @@ public class main {
             }else {
                 // El input no es un INT
                 System.out.print("\n");
-                System.out.println("Escriu un numero.");
+                System.out.println("Escriu un número.");
                 input.next();
             }
         } while (mainMenuChoice != 4);
