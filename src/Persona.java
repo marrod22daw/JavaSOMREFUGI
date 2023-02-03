@@ -11,6 +11,9 @@ public class Persona {
         this.email = email;
     }
 
+    public Persona() {
+    }
+
     public String getDni() {
         return dni;
     }

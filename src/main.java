@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class main {
     static ArrayList<Persona> profesors = new ArrayList<Persona>();
     static ArrayList<Persona> alumnes = new ArrayList<Persona>();
+
+    static ArrayList<Nota> notas = new ArrayList<Nota>();
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -13,12 +15,15 @@ public class main {
         Scanner sc = new Scanner(System.in);
 
         // Per crear els valors
+        Alumne alumn1 = new Alumne(23, "SMX");
         Profesor profesor1 = new Profesor("98745034J", "Estela", "Simon", "esimon.clot@fje.edu", 001, 202, 40.0, 15.0);
         Persona alumne1 = new Persona("54317002H", "Marti", "Rodriguez", "15583956.clot@fje.edu");
+        Nota nota1 = new Nota(8,5, 3,6,8,1, alumn1);
 
         //Per afegir els valors
         profesors.add(profesor1);
         alumnes.add(alumne1);
+        notas.add(nota1);
 
         do {
             // Display main menu
@@ -183,7 +188,10 @@ public class main {
                                     // Eliminar notes
                                     break;
                                 case 4:
-                                    // Llistar notes
+                                    Iterator<Nota> itNota = notas.iterator();
+                                    while (itNota.hasNext()) {
+                                        System.out.println(itNota.next());
+                                    }
                                     break;
                                 case 5:
                                     // Exit
