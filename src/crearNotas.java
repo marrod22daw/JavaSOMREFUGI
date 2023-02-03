@@ -6,14 +6,14 @@ public class crearNotas extends main{
         boolean errorComprobacio = false;
 
         System.out.println("Escriu el ID de l'alumne: ");
-        Integer IDProf = input.nextInt();
+        Integer IDAlum = input.nextInt();
 
         //Comproba el valor duplicat
         Iterator<Persona> itComprobaID = alumnes.iterator();
         while (itComprobaID.hasNext()) {
             Alumne alum = (Alumne) itComprobaID.next();
-            if (!IDProf.equals(alum.getIdAlumno())) {
-                System.out.println("EL ID " + IDProf + " no existeix!");
+            if (!IDAlum.equals(alum.getIdAlumno())) {
+                System.out.println("EL ID " + IDAlum + " no existeix!");
                 errorComprobacio = true;
                 break;
             }
@@ -24,26 +24,26 @@ public class crearNotas extends main{
         }
 
         System.out.println("Escriu la nota del M01: ");
-        Integer notaM01Prof = input.nextInt();
+        Integer notaM01Alum = input.nextInt();
 
         System.out.println("Escriu la nota del M03: ");
-        Integer notaM03Prof = input.nextInt();
+        Integer notaM03Alum = input.nextInt();
 
         System.out.println("Escriu la nota del M05: ");
-        Integer notaM05Prof = input.nextInt();
+        Integer notaM05Alum = input.nextInt();
 
         System.out.println("Escriu la nota del M07: ");
-        Integer notaM07Prof = input.nextInt();
+        Integer notaM07Alum = input.nextInt();
 
         System.out.println("Escriu la nota del M08: ");
-        Integer notaM08Prof = input.nextInt();
+        Integer notaM08Alum = input.nextInt();
 
         System.out.println("Escriu la nota del M12:");
-        Integer notaM12Prof = input.nextInt();
+        Integer notaM12Alum = input.nextInt();
 
 
         if (!errorComprobacio) {
-            Nota nota = new Nota(IDProf,notaM01Prof, notaM03Prof, notaM05Prof, notaM07Prof, notaM08Prof, notaM12Prof);
+            Nota nota = new Nota(IDAlum,notaM01Alum, notaM03Alum, notaM05Alum, notaM07Alum, notaM08Alum, notaM12Alum);
             notas.add(nota);
             System.out.println("Acció completada!");
         }

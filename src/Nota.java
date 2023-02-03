@@ -1,11 +1,11 @@
 public class Nota{
-    private Integer idAlumne;
-    private Integer M01;
-    private Integer M03;
-    private Integer M05;
-    private Integer M07;
-    private Integer M08;
-    private Integer M12;
+    protected Integer idAlumne;
+    protected Integer M01;
+    protected Integer M03;
+    protected Integer M05;
+    protected Integer M07;
+    protected Integer M08;
+    protected Integer M12;
 
     public Nota(Integer idAlumne, Integer m01, Integer m03, Integer m05, Integer m07, Integer m08, Integer m12) {
         this.idAlumne = idAlumne;
