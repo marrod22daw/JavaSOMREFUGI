@@ -15,7 +15,7 @@ public class main {
         // Per crear els valors
         Profesor profesor1 = new Profesor("98745034J", "Estela", "Simon", "esimon.clot@fje.edu", 001, 202, 40.0, 15.0);
         Alumne alumne1 = new Alumne("54317002H", "Marti", "Rodriguez", "15583956.clot@fje.edu", 23, "SMX");
-        Nota nota1 = new Nota(8,5, 3,6,8,1, 2);
+        Nota nota1 = new Nota(23,5, 3,6,8,1, 2);
 
         //Per afegir els valors
         profesors.add(profesor1);
@@ -59,7 +59,7 @@ public class main {
                                     crearProfesor.crearProfesor(input);
                                     break;
                                 case 2:
-                                    System.out.println("Introduce el ID del profesor a editar: ");
+                                    System.out.println("Introdueix el ID del profesor a editar: ");
                                     int idProfAEditar = input.nextInt();
                                     input.nextLine();
                                     boolean profesorEditado = false;
@@ -74,14 +74,14 @@ public class main {
                                     }
                                     if (profesorEditado) {
                                         crearProfesor.crearProfesor(input);
-                                        System.out.println("El profesor con ID " + idProfAEditar + " ha sido editado.");
+                                        System.out.println("El professor amb la ID " + idProfAEditar + " ha estat editat.");
                                     } else {
-                                        System.out.println("No se ha encontrado un profesor con ID " + idProfAEditar + ".");
+                                        System.out.println("No s'ha trobat un professor con ID " + idProfAEditar + ".");
                                     }
                                     break;
 
                                 case 3:
-                                    System.out.println("Introduce el ID del profesor a eliminar: ");
+                                    System.out.println("Introdueix l'ID del professor que vols eliminar: ");
                                     int idProfAEliminar = input.nextInt();
                                     boolean profesorEliminado = false;
                                     Iterator<Persona> borrar = profesors.iterator();
@@ -94,9 +94,9 @@ public class main {
                                         }
                                     }
                                     if (profesorEliminado) {
-                                        System.out.println("El profesor con ID " + idProfAEliminar + " ha sido eliminado.");
+                                        System.out.println("El profesor amb la ID " + idProfAEliminar + " ha sigut eliminat.");
                                     } else {
-                                        System.out.println("No se ha encontrado un profesor con ID " + idProfAEliminar + ".");
+                                        System.out.println("No s'ha trobat un professor amb l'ID " + idProfAEliminar + ".");
                                     }
                                     break;
                                 case 4:
@@ -111,7 +111,7 @@ public class main {
                                         System.out.println("Email: " + prof.getEmail());
                                         System.out.println("ID: " + prof.getIdProfesor());
                                         System.out.println("Aula tutor: " + prof.getTutorAula());
-                                        System.out.println("Horas setmanals: " + prof.getHorasimpartides());
+                                        System.out.println("Hores setmanals: " + prof.getHorasimpartides());
                                         System.out.println("Salari per hora: " + prof.getSalarixhora()+"€");
                                         System.out.println("Salari Total " + prof.salariTotal(prof.getHorasimpartides(),prof.getSalarixhora())+"€");
                                         System.out.println("//-+-+-+-+-+-+-//");
@@ -149,18 +149,64 @@ public class main {
 
                             switch (subMenuChoice) {
                                 case 1:
-                                    // Crear alumnes
+                                    System.out.print("\n");
+                                    System.out.println("Crear alumne ");
+                                    crearAlumne.crearAlumne(input);
                                     break;
                                 case 2:
-                                    // Editar alumnes
+                                    System.out.println("Introdueix el ID del alumne a editar: ");
+                                    int idAlumAEditar = input.nextInt();
+                                    input.nextLine();
+                                    boolean alumneEditado = false;
+                                    Iterator<Persona> editar = alumnes.iterator();
+                                    while (editar.hasNext()){
+                                        Alumne alum = (Alumne) editar.next();
+                                        if (alum.getIdAlumno() == idAlumAEditar) {
+                                            editar.remove();
+                                            alumneEditado = true;
+                                            break;
+                                        }
+                                    }
+                                    if (alumneEditado) {
+                                        crearAlumne.crearAlumne(input);
+                                        System.out.println("El alumne amb la ID " + idAlumAEditar + " ha estat editat.");
+                                    } else {
+                                        System.out.println("No s'ha trobat un alumne amb la ID " + idAlumAEditar + ".");
+                                    }
                                     break;
                                 case 3:
-                                    // Borrar alumnes
+                                    System.out.println("Introdueix el ID del alumne a eliminar: ");
+                                    int idAlumAEliminar = input.nextInt();
+                                    boolean alumneEliminado = false;
+                                    Iterator<Persona> borrar = alumnes.iterator();
+                                    while (borrar.hasNext()){
+                                        Alumne alum = (Alumne) borrar.next();
+                                        if (alum.getIdAlumno() == idAlumAEliminar) {
+                                            borrar.remove();
+                                            alumneEliminado = true;
+                                            break;
+                                        }
+                                    }
+                                    if (alumneEliminado) {
+                                        System.out.println("El alumne amb la ID " + idAlumAEliminar + " ha estat eliminat.");
+                                    } else {
+                                        System.out.println("No s'ha trobat un alumne amb la ID " + idAlumAEliminar + ".");
+                                    }
                                     break;
                                 case 4:
                                     Iterator<Persona> itAlum = alumnes.iterator();
                                     while (itAlum.hasNext()) {
-                                        System.out.println(itAlum.next());
+                                        Alumne alum = (Alumne) itAlum.next();
+                                        System.out.print("\n");
+                                        System.out.println("//-+-+-+-+-+-+-//");
+                                        System.out.println("DNI: " + alum.getDni());
+                                        System.out.println("Nom: " + alum.getNom());
+                                        System.out.println("Cognom: " + alum.getCognom());
+                                        System.out.println("Email: " + alum.getEmail());
+                                        System.out.println("ID: " + alum.getIdAlumno());
+                                        System.out.println("Classe: " + alum.getCurs());
+                                        System.out.println("//-+-+-+-+-+-+-//");
+                                        System.out.print("\n");
                                     }
                                     break;
                                 case 5:
