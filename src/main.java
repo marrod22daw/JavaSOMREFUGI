@@ -16,7 +16,7 @@ public class main {
         // Per crear els valors
         Profesor profesor1 = new Profesor("98745034J", "Estela", "Simon", "esimon.clot@fje.edu", 001, 202, 40.0, 15.0);
         Alumne alumne1 = new Alumne("54317002H", "Marti", "Rodriguez", "15583956.clot@fje.edu", 23, "SMX");
-        Nota nota1 = new Nota(23, 5, 3, 6, 8, 1, 2);
+        Nota nota1 = new Nota(3, 5, 3, 6, 8, 1, 2);
 
         // Per afegir els valors
         profesors.add(profesor1);
@@ -315,8 +315,8 @@ public class main {
                                             System.out.println("M12: " + prof.getM12());
                                             System.out.println("//-+-+-+-+-+-+-//");
                                             System.out.print("\n");
-                                            break;
                                         }
+                                        break;
                                     case 5:
                                         System.out.println("Introdueix el ID de l'alumne per veure la promoció: ");
                                         int idGestionarPromocion = input.nextInt();

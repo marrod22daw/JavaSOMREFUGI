@@ -116,7 +116,9 @@ public class crearAlumne extends main{
 
         if (!errorComprobacio) {
             Alumne Alumne = new Alumne(DNIAlum, nomAlum, cognomAlum, emailAlum, idAlum, claseAlum);
+            Nota nota = new Nota(idAlum,null,null,null,null, null, null);
             alumnes.add(Alumne);
+            notas.add(nota);
             System.out.println("Acció completada!");
         }
     }
