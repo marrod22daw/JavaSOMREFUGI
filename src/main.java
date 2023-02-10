@@ -319,8 +319,9 @@ public class main {
                                         break;
                                     case 5:
                                         System.out.println("Introdueix el ID de l'alumne per veure la promoció: ");
-                                        int idGestionarPromocion = input.nextInt();
+                                        Integer idGestionarPromocion = input.nextInt();
                                         boolean notagestio = false;
+                                        boolean CORRECTE = false;
                                         Iterator<Nota> apro = notas.iterator();
                                         while (apro.hasNext()) {
                                             Nota prof = (Nota) apro.next();
@@ -343,14 +344,20 @@ public class main {
                                                 } else if (contador < 2) {
                                                     notagestio = true;
                                                 }
+                                                CORRECTE = true;
                                             }
                                         }
-                                        if (notagestio == true) {
+                                        if (CORRECTE) {
+                                            if (notagestio == true) {
+                                                System.out.println(
+                                                        "L'alumne amb ID " + idGestionarPromocion + " ha aprovat el curs");
+                                            } else if (notagestio == false) {
+                                                System.out.println(
+                                                        "L'alumne amb " + idGestionarPromocion + " ha suspès el curs");
+                                            }
+                                        }else {
                                             System.out.println(
-                                                    "L'alumne amb ID " + idGestionarPromocion + " ha aprovat el curs");
-                                        } else if (notagestio == false) {
-                                            System.out.println(
-                                                    "L'alumne amb " + idGestionarPromocion + " ha suspès el curs");
+                                            "EL ID " + idGestionarPromocion + " no existeix!");
                                         }
                                         break;
                                     case 6:
