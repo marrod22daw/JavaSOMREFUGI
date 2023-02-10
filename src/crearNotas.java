@@ -4,22 +4,22 @@ import java.util.Scanner;
 public class crearNotas extends main{
     static void crearNotas(Scanner input) {
         boolean errorComprobacio = false;
+        boolean CORRECTE = false;
 
         System.out.println("Escriu el ID de l'alumne: ");
         Integer IDAlum = input.nextInt();
 
         //Comproba el valor duplicat
-        Iterator<Persona> itComprobaID = alumnes.iterator();
-        while (itComprobaID.hasNext()) {
-            Alumne alum = (Alumne) itComprobaID.next();
-            if (!IDAlum.equals(alum.getIdAlumno())) {
-                System.out.println("EL ID " + IDAlum + " no existeix!");
-                errorComprobacio = true;
-                break;
+        Iterator<Persona> itComprobaID2 = alumnes.iterator();
+        while (itComprobaID2.hasNext()) {
+            Alumne alum = (Alumne) itComprobaID2.next();
+            if (IDAlum.equals(alum.getIdAlumno())) {
+                CORRECTE = true;
             }
         }
 
-        if (errorComprobacio) {
+        if (!CORRECTE) {
+            System.out.println("EL ID " + IDAlum + " no existeix!");
             return;
         }
 
@@ -42,7 +42,7 @@ public class crearNotas extends main{
         Integer notaM12Alum = input.nextInt();
 
 
-        if (!errorComprobacio) {
+        if (CORRECTE) {
             Nota nota = new Nota(IDAlum,notaM01Alum, notaM03Alum, notaM05Alum, notaM07Alum, notaM08Alum, notaM12Alum);
             notas.add(nota);
             System.out.println("Acció completada!");

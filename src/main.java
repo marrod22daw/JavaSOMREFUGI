@@ -315,6 +315,7 @@ public class main {
                                             System.out.println("M12: " + prof.getM12());
                                             System.out.println("//-+-+-+-+-+-+-//");
                                             System.out.print("\n");
+                                            break;
                                         }
                                     case 5:
                                         System.out.println("Introdueix el ID de l'alumne per veure la promoció: ");
